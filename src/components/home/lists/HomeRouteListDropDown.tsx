@@ -35,7 +35,11 @@ const HomeRouteListDropDown = ({
           </Typography>
         </Box>
         <Box sx={chevronSx}>
-          {!expaned ? <ExpandMoreIcon fontSize="small" /> : <ExpandLessIcon fontSize="small" />}
+          {!expaned ? (
+            <ExpandMoreIcon fontSize="small" />
+          ) : (
+            <ExpandLessIcon fontSize="small" />
+          )}
         </Box>
       </Box>
       {expaned && (

@@ -140,13 +140,10 @@ const rootSx: SxProps<Theme> = {
   "& .Mui-selected": {
     color: (theme) =>
       `${
-        theme.palette.mode === "dark"
-          ? theme.palette.primary.main
-          : "#111"
+        theme.palette.mode === "dark" ? theme.palette.primary.main : "#111"
       } !important`,
     "& svg": {
-      filter: (theme) =>
-        theme.palette.mode === "light" ? "none" : "none",
+      filter: (theme) => (theme.palette.mode === "light" ? "none" : "none"),
     },
   },
   "& .MuiBottomNavigationAction-root.Mui-selected::before": {
@@ -159,9 +156,7 @@ const rootSx: SxProps<Theme> = {
     height: "3px",
     borderRadius: "0 0 3px 3px",
     backgroundColor: (theme) =>
-      theme.palette.mode === "dark"
-        ? theme.palette.primary.main
-        : "#fedb00",
+      theme.palette.mode === "dark" ? theme.palette.primary.main : "#fedb00",
   },
   "& .MuiBottomNavigationAction-root": {
     position: "relative",
