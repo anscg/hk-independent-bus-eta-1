@@ -205,5 +205,6 @@ const secondarySx: SxProps<Theme> = {
 const waitTimeSx: SxProps<Theme> = {
   fontSize: "1.1em",
   fontWeight: "700",
-  color: "#088bce",
+  color: (theme) =>
+    theme.palette.mode === "dark" ? theme.palette.primary.main : "#111",
 };

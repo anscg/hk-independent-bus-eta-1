@@ -270,6 +270,16 @@ const rootSx: SxProps<Theme> = {
   },
   display: "flex",
   justifyContent: "space-between",
+  alignItems: "center",
+  px: 1.5,
+  py: 0.75,
+  minHeight: "52px",
+  borderBottom: (theme) =>
+    theme.palette.mode === "light"
+      ? "1px solid rgba(0,0,0,0.08)"
+      : "1px solid rgba(255,255,255,0.08)",
+  background: (theme) =>
+    theme.palette.mode === "light" ? "#fff" : theme.palette.background.default,
 };
 
 const appTitleSx: SxProps<Theme> = {
@@ -278,49 +288,66 @@ const appTitleSx: SxProps<Theme> = {
       ? "url(/img/logo128.png)"
       : "url(/img/dark-32.jpg)",
   backgroundSize: "contain",
-  width: 32,
-  height: 32,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+  width: 36,
+  height: 36,
 };
 
 const searchRouteInputSx: SxProps<Theme> = {
-  maxWidth: "100px",
+  maxWidth: "110px",
+  borderRadius: "8px",
+  px: 1,
+  py: 0.25,
+  background: (theme) =>
+    theme.palette.mode === "light"
+      ? "rgba(0,0,0,0.06)"
+      : "rgba(255,255,255,0.08)",
   "& input": {
     textAlign: "center",
+    fontSize: "0.875rem",
+    py: 0.5,
   },
-  "& input::before": {
-    borderBottom: (theme) => `1px ${theme.palette.text.primary} solid`,
+  "&::before, &::after": {
+    display: "none",
   },
   "&.Mui-focused": {
-    "::after": {
-      borderBottomColor: ({ palette }) =>
-        palette.mode === "dark" ? palette.primary.main : palette.text.primary,
-    },
+    outline: (theme) => `2px solid ${theme.palette.primary.main}`,
+    outlineOffset: "-2px",
   },
 };
 
 const weatherPanelSx: SxProps<Theme> = {
   display: "flex",
-  alignContent: "center",
+  alignItems: "center",
+  gap: 0.5,
 };
 
 const funcPanelSx: SxProps<Theme> = {
   display: "flex",
   alignItems: "center",
-  opacity: 0.7,
+  gap: 0.25,
 };
 
 const languageSx: SxProps<Theme> = {
   color: (theme) => theme.palette.text.primary,
-  minWidth: "40px",
-  p: 1,
-  borderRadius: 5,
-  fontWeight: 900,
+  minWidth: "36px",
+  px: 0.75,
+  py: 0.5,
+  borderRadius: "8px",
+  fontWeight: 700,
+  fontSize: "0.8rem",
   textTransform: "none",
+  "&:hover": {
+    background: (theme) =>
+      theme.palette.mode === "light"
+        ? "rgba(0,0,0,0.06)"
+        : "rgba(255,255,255,0.08)",
+  },
 };
 
 const weatherImg: SxProps<Theme> = {
-  background: "white",
-  height: 24,
-  width: 24,
-  m: 1,
+  background: "transparent",
+  height: 26,
+  width: 26,
 };
