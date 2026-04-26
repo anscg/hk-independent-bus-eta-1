@@ -24,6 +24,7 @@
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
     "@mui/styles": "^5.8.4",
+    "@mui/utils": "^9.0.0",
     "@mui/x-date-pickers": "^6.5.0",
     "@protomaps/basemaps": "^5.7.0",
     "@types/plotly.js-basic-dist": "^1.54.4",

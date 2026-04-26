@@ -114,23 +114,64 @@ const Footer = () => {
 export default Footer;
 
 const rootSx: SxProps<Theme> = {
-  background: (theme) => theme.palette.background.default,
+  background: (theme) =>
+    theme.palette.mode === "light" ? "#fff" : theme.palette.background.default,
   bottom: "0",
   height: "initial",
+  borderTop: (theme) =>
+    theme.palette.mode === "light"
+      ? "1px solid rgba(0,0,0,0.08)"
+      : "1px solid rgba(255,255,255,0.08)",
   "& .MuiBottomNavigationAction-root": {
     width: "20%",
-    padding: "6px 0",
+    padding: "8px 0 6px",
     minWidth: 0,
+    color: (theme) =>
+      theme.palette.mode === "light"
+        ? "rgba(0,0,0,0.45)"
+        : "rgba(255,255,255,0.45)",
+    transition: "color 0.15s ease",
   },
   "& .MuiBottomNavigationAction-label": {
-    fontSize: "0.875rem",
+    fontSize: "0.72rem",
+    fontWeight: 500,
+    marginTop: "2px",
   },
   "& .Mui-selected": {
     color: (theme) =>
       `${
         theme.palette.mode === "dark"
           ? theme.palette.primary.main
-          : theme.palette.text.primary
+          : "#111"
       } !important`,
+    "& svg": {
+      filter: (theme) =>
+        theme.palette.mode === "light" ? "none" : "none",
+    },
+  },
+  "& .MuiBottomNavigationAction-root.Mui-selected::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: "24px",
+    height: "3px",
+    borderRadius: "0 0 3px 3px",
+    backgroundColor: (theme) =>
+      theme.palette.mode === "dark"
+        ? theme.palette.primary.main
+        : "#fedb00",
+  },
+  "& .MuiBottomNavigationAction-root": {
+    position: "relative",
+    width: "20%",
+    padding: "8px 0 6px",
+    minWidth: 0,
+    color: (theme) =>
+      theme.palette.mode === "light"
+        ? "rgba(0,0,0,0.45)"
+        : "rgba(255,255,255,0.45)",
+    transition: "color 0.15s ease",
   },
 };

@@ -82,23 +82,51 @@ export const isHomeTab = (
 };
 
 const tabbarSx: SxProps<Theme> = {
-  background: (theme) => theme.palette.background.default,
-  minHeight: "36px",
+  background: (theme) =>
+    theme.palette.mode === "light" ? "#fff" : theme.palette.background.default,
+  minHeight: "40px",
+  borderBottom: (theme) =>
+    theme.palette.mode === "light"
+      ? "1px solid rgba(0,0,0,0.08)"
+      : "1px solid rgba(255,255,255,0.08)",
+  "& .MuiTabs-indicator": {
+    height: "3px",
+    borderRadius: "3px 3px 0 0",
+    backgroundColor: (theme) =>
+      theme.palette.mode === "dark" ? theme.palette.primary.main : "#111",
+  },
   [`& .MuiTab-root`]: {
     textTransform: "none",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 0,
-    paddingBottom: 0,
-    minHeight: "32px",
+    paddingTop: "6px",
+    paddingBottom: "6px",
+    paddingLeft: "12px",
+    paddingRight: "12px",
+    minHeight: "40px",
+    color: (theme) =>
+      theme.palette.mode === "light"
+        ? "rgba(0,0,0,0.5)"
+        : "rgba(255,255,255,0.5)",
+    "&.Mui-selected": {
+      color: (theme) =>
+        theme.palette.mode === "dark" ? theme.palette.primary.main : "#111",
+      fontWeight: 700,
+    },
+    transition: "color 0.15s ease",
   },
   [`& .MuiTabs-flexContainer`]: {
     justifyContent: "flex-start",
     "& svg": {
-      fontSize: "1rem",
+      fontSize: "0.95rem",
     },
     "& .MuiTab-root": {
-      fontSize: "0.8em",
+      fontSize: "0.8rem",
+      gap: "4px",
     },
+  },
+  "& .MuiTabs-scrollButtons": {
+    opacity: 0.6,
+    width: "28px",
   },
 };

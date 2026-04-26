@@ -227,8 +227,23 @@ const rootSx: SxProps<Theme> = {
   display: "grid",
   gap: (theme) => theme.spacing(1),
   gridTemplateColumns: "15% 1fr minmax(18%, max-content)",
-  padding: (theme) => `${theme.spacing(0.5)} ${theme.spacing(1)}`,
-  color: "rgba(0,0,0,0.87)",
+  padding: (theme) => `${theme.spacing(0.75)} ${theme.spacing(1.5)}`,
+  color: (theme) => theme.palette.text.primary,
+  cursor: "pointer",
+  transition: "background 0.12s ease",
+  "&:hover": {
+    background: (theme) =>
+      theme.palette.mode === "light"
+        ? "rgba(0,0,0,0.03)"
+        : "rgba(255,255,255,0.04)",
+  },
+  borderBottom: (theme) =>
+    theme.palette.mode === "light"
+      ? "1px solid rgba(0,0,0,0.06)"
+      : "1px solid rgba(255,255,255,0.06)",
+  "&:last-child": {
+    borderBottom: "none",
+  },
 };
 
 const routeDestSx: SxProps<Theme> = {
@@ -239,8 +254,9 @@ const fromToWrapperSx: SxProps<Theme> = {
   display: "flex",
   alignItems: "baseline",
   "& > span": {
-    fontSize: "0.85rem",
+    fontSize: "0.78rem",
     marginRight: (theme) => theme.spacing(0.5),
+    opacity: 0.6,
   },
 };
 
@@ -255,10 +271,18 @@ const iconContainerSx: SxProps<Theme> = {
 const companySx: SxProps<Theme> = {
   color: (theme) => theme.palette.text.secondary,
   textOverflow: "ellipsis",
+  fontSize: "0.7rem",
 };
 
 const specialTripSx: SxProps<Theme> = {
   color: (theme) => theme.palette.text.secondary,
-  fontSize: "0.6rem",
-  marginLeft: "8px",
+  fontSize: "0.58rem",
+  marginLeft: "6px",
+  background: (theme) =>
+    theme.palette.mode === "light"
+      ? "rgba(0,0,0,0.08)"
+      : "rgba(255,255,255,0.12)",
+  borderRadius: "4px",
+  px: "4px",
+  py: "1px",
 };

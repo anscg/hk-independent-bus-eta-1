@@ -169,11 +169,17 @@ declare module "@mui/material/styles" {
 
 const getThemeTokens = (mode: PaletteMode, fontSize: number) => ({
   typography: {
-    fontFamily: "'Chiron Hei HK WS'",
+    fontFamily: "'Chiron Hei HK WS', system-ui, sans-serif",
     h6: {
       fontWeight: 700,
     },
+    h5: {
+      fontWeight: 700,
+    },
     fontSize,
+  },
+  shape: {
+    borderRadius: 10,
   },
   avatar: {
     default: {
@@ -184,30 +190,37 @@ const getThemeTokens = (mode: PaletteMode, fontSize: number) => ({
     mode,
     ...(mode === "light"
       ? {
-          // light mode
+          // light mode — white background, yellow accent
           background: {
-            default: "#fedb00", // yellow
-            contrast: "rgba(255, 255, 255, 0.12)",
+            default: "#f5f5f5",
+            paper: "#ffffff",
+            contrast: "rgba(0, 0, 0, 0.06)",
           },
           primary: {
-            main: "#444",
-            contrastText: "rgba(0, 0, 0, 0.12)",
+            main: "#111111",
+            contrastText: "#ffffff",
           },
           warning: {
             main: "#3285e3",
           },
           secondary: {
-            main: "#000",
+            main: "#fedb00",
+            contrastText: "#000",
+          },
+          text: {
+            primary: "#111111",
+            secondary: "rgba(0,0,0,0.55)",
           },
         }
       : {
-          //dark mode
+          // dark mode — black background, yellow accent
           background: {
-            default: "#000",
-            contrast: "rgba(255, 255, 255, 0.12)",
+            default: "#0a0a0a",
+            paper: "#141414",
+            contrast: "rgba(255, 255, 255, 0.08)",
           },
           primary: {
-            main: "#fedb00", // yellow
+            main: "#fedb00",
             contrastText: "#000",
           },
           warning: {
@@ -215,17 +228,29 @@ const getThemeTokens = (mode: PaletteMode, fontSize: number) => ({
           },
           secondary: {
             main: "#fedb00",
+            contrastText: "#000",
+          },
+          text: {
+            primary: "#f0f0f0",
+            secondary: "rgba(255,255,255,0.55)",
           },
         }),
   },
-  elements: {
+  components: {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
           fontSize: "0.875rem",
-          lineHeight: 1.43,
-          scrollbarColor: "#3f3f3f",
+          lineHeight: 1.5,
+          scrollbarColor: "#3f3f3f transparent",
           scrollbarWidth: "thin",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          minHeight: "52px !important",
         },
       },
     },

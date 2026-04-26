@@ -40,6 +40,9 @@ const mainSx: SxProps<Theme> = {
   flex: 1,
   overflow: "hidden",
   backgroundColor: (theme) => theme.palette.background.default,
+  "& > .MuiPaper-root": {
+    background: (theme) => theme.palette.background.default,
+  },
 };
 
 export default Root;
